@@ -14,6 +14,10 @@ public interface AppointmentRepository extends JpaRepository<Appointment, String
 	//kat - select a particular prescription for a particular patient using prescription id
 	@Query("SELECT a FROM Appointment a WHERE a.patient.patientId LIKE :id") 
 	public ArrayList<Appointment> findConsultationHistoryByPatientId(@Param("id") String id);
+	
+	//kat - select all appointments for a particular doctor id
+ 	@Query("SELECT a FROM Appointment a WHERE a.doctor.doctorId LIKE :id")
+ 	public ArrayList<Appointment> findAllAppointmentsByDoctorId(@Param("id") String id);
 
 	//gen - select all appointments by doctor id
 	@Query("SELECT a FROM Appointment a INNER JOIN a.doctor d WHERE d.doctorId LIKE :doctorid GROUP BY a.patient")

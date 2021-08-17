@@ -26,8 +26,7 @@ public class Appointment
 	@DateTimeFormat (pattern="dd-MM-yyyy")
 	private Date appointmentDate;	
 	
-	@DateTimeFormat(pattern ="HH:mm")
-	private Date appointmentTime;
+	private int appointmentTime;
 	
 	@ManyToOne
 	private Doctor doctor;
@@ -53,7 +52,7 @@ public class Appointment
 
 
 
-	public Appointment(Date appointmentDate,Date appointmentTime) {
+	public Appointment(Date appointmentDate,int appointmentTime) {
 		super();
 		this.appointmentDate = appointmentDate;
 		this.appointmentTime=appointmentTime;
@@ -63,7 +62,7 @@ public class Appointment
 
 
 
-	public Appointment(int id, Date appointmentDate,Date appointmentTime) {
+	public Appointment(int id, Date appointmentDate,int appointmentTime) {
 		super();
 		this.id = id;
 		this.appointmentDate = appointmentDate;
@@ -74,7 +73,7 @@ public class Appointment
 
 
 
-	public Appointment(int id, Date appointmentDate,Date appointmentTime, Doctor doctor, Patient patient, Prescription prescription,
+	public Appointment(int id, Date appointmentDate,int appointmentTime, Doctor doctor, Patient patient, Prescription prescription,
 			MedicalCertificate mc) {
 		super();
 		this.id = id;
@@ -185,7 +184,7 @@ public class Appointment
 
 
 
-	public Date getAppointmentTime() {
+	public int getAppointmentTime() {
 		return appointmentTime;
 	}
 
@@ -193,7 +192,7 @@ public class Appointment
 
 
 
-	public void setAppointmentTime(Date appointmentTime) {
+	public void setAppointmentTime(int appointmentTime) {
 		this.appointmentTime = appointmentTime;
 	}
 	 
